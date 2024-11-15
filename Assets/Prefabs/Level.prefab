@@ -1973,7 +1973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6039540852479504568, guid: 7be641a16cd7bc9478e9f1b2eea058bc, type: 3}
       propertyPath: m_Name
-      value: spawns
+      value: EndPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039540852479504568, guid: 7be641a16cd7bc9478e9f1b2eea058bc, type: 3}
+      propertyPath: m_TagString
+      value: EndPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6625,7 +6629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6039540852479504568, guid: 7be641a16cd7bc9478e9f1b2eea058bc, type: 3}
       propertyPath: m_Name
-      value: spawns
+      value: StartPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
