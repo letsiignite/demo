@@ -3,15 +3,15 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float tiltSpeed = 800f;
-    public float flickSpeed = 5f;
-    public float jumpForce = 500f;
+    public float tiltSpeed = 15f;
+    public float flickSpeed = 8f;
+    public float jumpForce = 300f;     // Increased jump force significantly
     public float maxVelocity = 10f;
 
     [Header("Game Settings")]
     public int maxLives = 3;
     public GameObject startPoint;
-    public float respawnHeight = 3f;
+    public float respawnHeight = 1f;
 
     private Rigidbody rb;
     private Vector2 startTouch, endTouch;
@@ -20,29 +20,18 @@ public class BallControl : MonoBehaviour
     private bool isRespawning;
     private Vector3 lastValidPosition;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
-
         if (rb != null)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.mass = 1f;
-            rb.linearDamping = 1f;        // Using linearDamping instead of drag
-            rb.angularDamping = 0.5f;     // Using angularDamping instead of angularDrag
+            rb.linearDamping = 1f;
+            rb.angularDamping = 0.5f;
             rb.interpolation = RigidbodyInterpolation.Interpolate;
             rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rb.useGravity = true;
-        }
-    }
-
-    void Start()
-    {
-        if (rb == null)
-        {
-            Debug.LogError("Rigidbody is not assigned!");
-            enabled = false;
-            return;
         }
 
         if (startPoint == null)
@@ -61,27 +50,28 @@ public class BallControl : MonoBehaviour
     {
         if (isRespawning) return;
 
+        // Tilt Movement
         Vector3 tilt = Input.acceleration;
         Vector3 movement = new Vector3(tilt.x, 0, tilt.y);
-        rb.AddForce(movement * tiltSpeed * Time.fixedDeltaTime, ForceMode.Force);
+        rb.AddForce(movement * tiltSpeed, ForceMode.Force);
 
-        // Limit velocity
+        // Velocity Limit
         Vector3 currentVelocity = rb.linearVelocity;
         if (currentVelocity.magnitude > maxVelocity)
         {
             rb.linearVelocity = currentVelocity.normalized * maxVelocity;
         }
 
-        // Store valid position when not falling
+        // Track last valid position
         if (isGrounded || transform.position.y > -10f)
         {
             lastValidPosition = transform.position;
         }
 
-        // Emergency respawn if falling too far
-        if (transform.position.y < -20f)
+        // Check if ball has fallen below a certain height
+        if (transform.position.y < -5f)  // Changed from -20f to -5f for quicker respawn
         {
-            ForcedRespawn();
+            ResetBall();  // Changed from ForcedRespawn to ResetBall
         }
     }
 
@@ -89,6 +79,7 @@ public class BallControl : MonoBehaviour
     {
         if (isRespawning) return;
 
+        // Flick/Swipe Control
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -115,12 +106,7 @@ public class BallControl : MonoBehaviour
     {
         if (isGrounded && !isRespawning)
         {
-            // Set vertical velocity to zero before jumping
-            Vector3 currentVelocity = rb.linearVelocity;
-            currentVelocity.y = 0;
-            rb.linearVelocity = currentVelocity;
-
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);  // Changed to ForceMode.Impulse
             isGrounded = false;
         }
     }
@@ -129,7 +115,7 @@ public class BallControl : MonoBehaviour
     {
         foreach (ContactPoint contact in collision.contacts)
         {
-            if (contact.normal.y > 0.7f)
+            if (contact.normal.y > 0.5f)  // Changed from 0.7f to 0.5f for better ground detection
             {
                 isGrounded = true;
                 return;
@@ -154,7 +140,6 @@ public class BallControl : MonoBehaviour
             else
             {
                 Debug.Log("Game Over!");
-                // Add game over logic here
             }
         }
     }
@@ -163,43 +148,27 @@ public class BallControl : MonoBehaviour
     {
         isRespawning = true;
 
-        // Disable physics and reset position
-        rb.isKinematic = false;
+        // Disable physics temporarily
+        rb.isKinematic = true;
 
-        // Set position above start point
-        Vector3 respawnPosition = startPoint.transform.position + Vector3.up * respawnHeight;
-        transform.position = respawnPosition;
+        // Reset position above start point
+        transform.position = startPoint.transform.position + Vector3.up * respawnHeight;
 
-        // Re-enable physics after a delay
-        Invoke("EnableBall", 0.2f);
+        // Reset velocities
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Re-enable physics after a short delay
+        Invoke("EnableBall", 0.1f);
 
         Debug.Log($"Lives Remaining: {lives}");
     }
 
-    private void ForcedRespawn()
-    {
-        isRespawning = true;
-
-        // Use last valid position if available, otherwise use start point
-        Vector3 respawnPos = lastValidPosition != Vector3.zero ?
-            lastValidPosition + Vector3.up * 2f :
-            startPoint.transform.position + Vector3.up * respawnHeight;
-
-        rb.isKinematic = true;
-        transform.position = respawnPos;
-
-        Invoke("EnableBall", 0.2f);
-    }
-
     private void EnableBall()
     {
-        // Re-enable physics
         rb.isKinematic = false;
-
-        // Reset velocities after switching back to non-kinematic
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-
         rb.WakeUp();
         isRespawning = false;
     }

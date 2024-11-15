@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25706b450358864bad3c265501b203a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiltSpeed: 10
-  flickSpeed: 5
-  jumpForce: 10
+  tiltSpeed: 15
+  flickSpeed: 8
+  jumpForce: 300
   maxVelocity: 10
   maxLives: 3
   startPoint: {fileID: 0}

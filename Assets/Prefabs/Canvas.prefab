@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.16862746}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8048548357262004014, guid: 4984df5f26fdabf40b6e10bccaead3e5, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BallControl, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &3034462008975571454
 GameObject:
   m_ObjectHideFlags: 0

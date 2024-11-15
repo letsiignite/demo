@@ -365,9 +365,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6096092886885523890, guid: 8f92fecfa4390f34d86684e1d9b8bdde, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1757786189}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -381,30 +381,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 262011626111204102, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109706229764189319, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2923227311155968405, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2963613604787320838, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 3659571030658743448, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 3756781030557926676, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
     - target: {fileID: 3990784984898872728, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.07
@@ -445,61 +421,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4905669895909306506, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 5017997920670440988, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 5308636866001808297, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908875461024052554, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263937529792018714, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591942753400661300, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895839043991194551, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936095601755591744, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6959163295579325952, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 7310695677099737626, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132711264444188031, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359383697650800222, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
-      objectReference: {fileID: 0}
     - target: {fileID: 8427492604787106712, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
       propertyPath: m_Name
       value: Level
-      objectReference: {fileID: 0}
-    - target: {fileID: 9093502212759494168, guid: f272a4cf0d302ea4c9504a367a444ff9, type: 3}
-      propertyPath: m_TagString
-      value: FallZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -572,6 +496,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4984df5f26fdabf40b6e10bccaead3e5, type: 3}
+--- !u!1 &987497107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3973717314617218938, guid: 8f92fecfa4390f34d86684e1d9b8bdde, type: 3}
+  m_PrefabInstance: {fileID: 376218442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1114190911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1956371996128528150, guid: 4984df5f26fdabf40b6e10bccaead3e5, type: 3}
@@ -638,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 987497107}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1371731804
@@ -777,6 +706,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1757786189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8048548357262004014, guid: 4984df5f26fdabf40b6e10bccaead3e5, type: 3}
+  m_PrefabInstance: {fileID: 961875948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25706b450358864bad3c265501b203a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
